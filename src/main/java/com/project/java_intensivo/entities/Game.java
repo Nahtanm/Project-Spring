@@ -10,33 +10,37 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name= "tb_game")
+@Table(name = "tb_game")
 public class Game {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;
-	
+
 	@Column(name = "game_year")
 	private Integer year;
 	private String genre;
-	private String plataforms;
+	private String plataform;
 	private Double score;
 	private String imgUrl;
-	private String shortDescription;
-	private String longDescription;
 	
+	@Column(columnDefinition = "TEXT")
+	private String shortDescription;
+	
+	@Column(columnDefinition = "TEXT")
+	private String longDescription;
+
 	public Game() {
-		
+
 	}
 
-	public Game(Long id, String title, Integer year, String genre, String plataforms, Double score, String imgUrl,
+	public Game(Long id, String title, Integer year, String genre, String plataform, Double score, String imgUrl,
 			String shortDescription, String longDescription) {
 		this.id = id;
 		this.title = title;
 		this.year = year;
 		this.genre = genre;
-		this.plataforms = plataforms;
+		this.plataform = plataform;
 		this.score = score;
 		this.imgUrl = imgUrl;
 		this.shortDescription = shortDescription;
@@ -67,20 +71,20 @@ public class Game {
 		this.year = year;
 	}
 
-	public String getGenere() {
+	public String getGenre() {
 		return genre;
 	}
 
-	public void setGenere(String genere) {
-		this.genre = genere;
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 
-	public String getPlataforms() {
-		return plataforms;
+	public String getPlataform() {
+		return plataform;
 	}
 
-	public void setPlataforms(String plataforms) {
-		this.plataforms = plataforms;
+	public void setPlataform(String plataform) {
+		this.plataform = plataform;
 	}
 
 	public Double getScore() {
@@ -134,10 +138,9 @@ public class Game {
 
 	@Override
 	public String toString() {
-		return "Game [id=" + id + ", title=" + title + ", year=" + year + ", genere=" + genre + ", plataforms="
-				+ plataforms + ", score=" + score + ", imgUrl=" + imgUrl + ", shortDescription=" + shortDescription
+		return "Game [id=" + id + ", title=" + title + ", year=" + year + ", genre=" + genre + ", plataform="
+				+ plataform + ", score=" + score + ", imgUrl=" + imgUrl + ", shortDescription=" + shortDescription
 				+ ", longDescription=" + longDescription + "]";
 	}
-	
-	
+
 }
