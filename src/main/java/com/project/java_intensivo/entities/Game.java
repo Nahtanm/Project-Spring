@@ -23,10 +23,11 @@ public class Game {
 	private String plataform;
 	private Double score;
 	private String imgUrl;
-	
+
+	//	Definir coluna como uma String e não como varchar no banco de dados
 	@Column(columnDefinition = "TEXT")
 	private String shortDescription;
-	
+
 	@Column(columnDefinition = "TEXT")
 	private String longDescription;
 
