@@ -11,11 +11,11 @@ public class GameList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String game;
+    private String name;
 
-    public GameList(Long id, String game) {
+    public GameList(Long id, String name) {
         this.id = id;
-        this.game = game;
+        this.name = name;
     }
 
     public GameList(){
@@ -31,11 +31,11 @@ public class GameList {
     }
 
     public String getGame() {
-        return game;
+        return name;
     }
 
-    public void setGame(String game) {
-        this.game = game;
+    public void setGame(String name) {
+        this.name = name;
     }
 
     @Override
@@ -54,7 +54,7 @@ public class GameList {
     public String toString() {
         return "GameList{" +
                 "id=" + id +
-                ", game='" + game + '\'' +
+                ", game='" + name + '\'' +
                 '}';
     }
 }
