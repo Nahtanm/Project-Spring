@@ -3,6 +3,7 @@ package com.project.java_intensivo.dto;
 import java.util.Objects;
 
 import com.project.java_intensivo.entities.Game;
+import com.project.java_intensivo.projection.GameMinProjection;
 
 public class GameMinDTO {
 
@@ -16,6 +17,14 @@ public class GameMinDTO {
 	}
 
 	public GameMinDTO(Game entity) {
+		id = entity.getId();
+		title = entity.getTitle();
+		year = entity.getYear();
+		imgUrl = entity.getImgUrl();
+		shortDescription = entity.getShortDescription();
+	}
+
+	public GameMinDTO(GameMinProjection entity) {
 		id = entity.getId();
 		title = entity.getTitle();
 		year = entity.getYear();

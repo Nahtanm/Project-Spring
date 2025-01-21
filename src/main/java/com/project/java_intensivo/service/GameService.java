@@ -3,6 +3,7 @@ package com.project.java_intensivo.service;
 import java.util.List;
 
 import com.project.java_intensivo.dto.GameDTO;
+import com.project.java_intensivo.projection.GameMinProjection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +29,13 @@ public class GameService {
 		List<Game> games = gameRepository.findAll();
 		return games.stream().map(x -> new GameMinDTO(x)).toList();
 	}
+
+	@Transactional(readOnly = true)
+	public List<GameMinDTO> findByList(Long id){
+		List<GameMinProjection> games = gameRepository.searchByList(id);
+		return games.stream().map(x -> new GameMinDTO(x)).toList();
+	}
+
+
 	
 }
